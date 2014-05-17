@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * @file
+ * Contains vimeo_field.module
+ */
+
+/**
+ * Implements hook_help().
+ */
+
+function vimeo_field_help($path, $arg)
+{
+  switch ($path) {
+    case 'admin/help#vimeo_field':
+      $output = 'Vimeo field to Drupal 8';
+      return $output;
+    break;
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+
+function vimeo_field_theme()
+{
+  $theme = [];
+
+  return $theme;
+}

@@ -1,0 +1,18 @@
+{
+    "name": "drupal/vimeo_field",
+    "description": "Vimeo Field for Drupal 8",
+    "authors": [
+        {
+            "name": "David Flores",
+            "email": "dmousex@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "4.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drupal\\vimeo_field\\": "src"
+        }
+    }
+}
