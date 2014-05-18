@@ -19,14 +19,15 @@ function vimeo_field_help($path, $arg)
   }
 }
 
-
 /**
  * Implements hook_theme().
  */
-
-function vimeo_field_theme()
+function vimeo_field_theme() 
 {
-  $theme = [];
-
+  $theme['vimeo_player'] = [ 
+    'variables' => ['vids' => NULL],
+    'template' => 'vimeo_player'
+  ];  
+ 
   return $theme;
 }
