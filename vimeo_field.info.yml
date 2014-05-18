@@ -1,5 +1,5 @@
 name: vimeo_field
 type: module
-description: Vimeo field to Drupal 8
+description: 'Vimeo field to Drupal 8.'
 core: 8.x
 package: Media
