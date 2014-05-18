@@ -1,9 +1,8 @@
 <?php
 /**
  * @file
- * Content 
+ * Content Test\Drupal\vimeo_field\Plugin\Field\FieldFormatter\VimeoDefaultFormatter
  */
-//use Drupal\vimeo_field\Plugin\Field\FieldFormatter\VimeoDefaultFormatter;
 
 class VimeoDefaultFormatterTest extends \PHPUnit_Framework_TestCase
 {
@@ -11,7 +10,7 @@ class VimeoDefaultFormatterTest extends \PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		$this->formmaterItemListInterface = $this->getMockBuilder('Drupal\Core\Field\FieldItemListInterface')
-			->disableOriginalConstructor()
+      ->disableOriginalConstructor()
 			->getMock();
 		$this->formmaterBase = $this->getMockBuilder('Drupal\Core\Field\FormatterBase')
 			->setMethods([])
@@ -35,25 +34,12 @@ class VimeoDefaultFormatterTest extends \PHPUnit_Framework_TestCase
 			->method('getSetting')
 			->will($this->returnValue('100'));
 
-		$this->items = $this->getMockBuilder('Drupal\text\Plugin\Field\FieldType\TextItem')
-			->getMock();
-
-		$this->fieldItemList = $this->getMockBuilder('Drupal\Core\Field\FieldItemListInterface')
-			->disableOriginalConstructor()
-			->setMethods(['get','getIterator','__get'])
-			->getMock();
-
-		$this->fieldItemList->expects($this->any())
-			->method('__get')
-			->with($this->returnCallback(function(){ return 'snickers'; }))
-			->will($this->returnValue([['a'=>'b']]));
 	}
 
 	public function testToReturnIframeVideo()
 	{
-		$markup = $this->formatter->viewElements($this->fieldItemList);
-		$this->assertNotEmpty($markup['#vids']);
-
+		$id = $this->formatter->vimeoUrlToId('http://vimeo.com/45639028');
+		$this->assertEquals('45639028',$id);	
 	}
 
 	public function testToGetSettingsForm(){
@@ -69,5 +55,4 @@ class VimeoDefaultFormatterTest extends \PHPUnit_Framework_TestCase
 		$this->assertContains('Width: 100px', $summary[0]);
 		$this->assertContains('Height: 100px',$summary[1]);
 	}
-
 }

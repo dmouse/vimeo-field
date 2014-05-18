@@ -22,6 +22,20 @@ use Drupal\Core\Field\FormatterBase;
  */
 class VimeoDefaultFormatter extends FormatterBase
 {
+
+	const URLTOID = '/vimeo\.com\/(\w+\s*\/?)*([0-9]+)*$/i';
+
+	/**
+	 * Return id from an Vime URL
+	 * @param  string $url Vimeo url
+	 * @return string      Vimeo id
+	 */
+	public function vimeoUrlToId($url)
+	{
+		preg_match(VimeoDefaultFormatter::URLTOID,$url, $matches);
+		return $matches[1];
+	}
+
 	/**
    * {@inheritdoc}
    */
@@ -30,23 +44,15 @@ class VimeoDefaultFormatter extends FormatterBase
     $elements = array();
 
     foreach ($items as $delta => $item) {
-    	
-    	var_dump($item);
-      
-      preg_match('/vimeo\.com\/(\w+\s*\/?)*([0-9]+)*$/i',$item->processed, $matches);
-      $elements[$delta]['video'] = $matches[1];
+      $elements[$delta]['video'] = $this->vimeoUrlToId($item->processed);
       $elements[$delta]['height'] = $this->getSetting('vimeo_height');
       $elements[$delta]['width'] = $this->getSetting('vimeo_width');
     }
 
-    $result = [
+    return [
       '#theme' => 'vimeo_player',
       '#vids' => $elements,
     ];
-
-    //print_r($result);
-
-    return $result;
   }
 
 	/**
@@ -83,7 +89,10 @@ class VimeoDefaultFormatter extends FormatterBase
     return $element;
   }
 
-  public function settingsSummary() 
+  /**
+   * {@inheritdoc}
+   */
+  public function settingsSummary()
   {
     return [
       $this->t('Width: ') . $this->getSetting('vimeo_width') . 'px',
