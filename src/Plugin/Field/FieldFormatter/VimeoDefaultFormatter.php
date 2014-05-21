@@ -55,7 +55,7 @@ class VimeoDefaultFormatter extends FormatterBase
     ];
   }
 
-	/**
+  /**
    * {@inheritdoc}
    */
   public static function defaultSettings()
