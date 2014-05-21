@@ -14,6 +14,7 @@ class VimeoDefaultFormatterTest extends \PHPUnit_Framework_TestCase
   {
     $this->formatter = $this->getMockBuilder('Drupal\vimeo_field\Plugin\Field\FieldFormatter\VimeoDefaultFormatter')
       ->disableOriginalConstructor()
+      ->setMethods(['t', 'getSetting'])
       ->getMock();
 
     $this->formatter->expects($this->any())
