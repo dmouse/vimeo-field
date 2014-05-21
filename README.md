@@ -8,7 +8,7 @@ Vimeo Field Formatter for Drupal 8
 ```bash
 $ cd path/to/drupal/8/modules
 $ git clone git@github.com:dmouse/vimeo_field.git
-$ drush en -y vimeo_field
+$ drush en -y vimeo_field # or enable this module via UI
 ```
 
 ### Usage
@@ -22,5 +22,5 @@ Resources
 
 You can run the unit tests with the following command:
 
-    $ composer.phar install
-    $ phpunit
+    $ composer install
+    $ vendor/bin/phpunit
