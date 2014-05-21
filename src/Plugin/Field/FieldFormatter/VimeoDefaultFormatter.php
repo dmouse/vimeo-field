@@ -22,7 +22,6 @@ use Drupal\Core\Field\FormatterBase;
  */
 class VimeoDefaultFormatter extends FormatterBase
 {
-
 	const URLTOID = '/vimeo\.com\/(\w+\s*\/?)*([0-9]+)*$/i';
 
 	/**
