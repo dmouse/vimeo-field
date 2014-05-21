@@ -25,13 +25,14 @@ class VimeoDefaultFormatter extends FormatterBase
 	const URLTOID = '/vimeo\.com\/(\w+\s*\/?)*([0-9]+)*$/i';
 
 	/**
-	 * Return id from an Vime URL
+	 * Return id from a Vimeo URL
 	 * @param  string $url Vimeo url
 	 * @return string      Vimeo id
 	 */
 	public function vimeoUrlToId($url)
 	{
-		preg_match(VimeoDefaultFormatter::URLTOID,$url, $matches);
+		preg_match(VimeoDefaultFormatter::URLTOID, $url, $matches);
+
 		return $matches[1];
 	}
 
@@ -40,7 +41,7 @@ class VimeoDefaultFormatter extends FormatterBase
    */
   public function viewElements(FieldItemListInterface $items)
   {
-    $elements = array();
+    $elements = [];
 
     foreach ($items as $delta => $item) {
       $elements[$delta]['video'] = $this->vimeoUrlToId($item->processed);
@@ -61,7 +62,7 @@ class VimeoDefaultFormatter extends FormatterBase
   {
     return [
       'vimeo_width'  => 600,
-      'vimeo_height' => 400
+      'vimeo_height' => 400,
     ] + parent::defaultSettings();
   }
 
@@ -79,7 +80,7 @@ class VimeoDefaultFormatter extends FormatterBase
     ];
 
     $element['vimeo_height'] = [
-      '#title' => $this->t('Default width'),
+      '#title' => $this->t('Default height'),
       '#type' => 'number',
       '#default_value' => 400,
       '#empty_option' => $this->t('None'),
@@ -95,7 +96,7 @@ class VimeoDefaultFormatter extends FormatterBase
   {
     return [
       $this->t('Width: ') . $this->getSetting('vimeo_width') . 'px',
-      $this->t('Height: '). $this->getSetting('vimeo_height'). 'px'
+      $this->t('Height: '). $this->getSetting('vimeo_height'). 'px',
     ];
   }
 }
