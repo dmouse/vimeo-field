@@ -6,19 +6,13 @@
  */
 class VimeoDefaultFormatterTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var $formatter \Drupal\vimeo_field\Plugin\Field\FieldFormatter\VimeoDefaultFormatter */
+    protected $formatter;
+
     protected function setUp()
     {
-        $this->formmaterItemListInterface = $this->getMockBuilder('Drupal\Core\Field\FieldItemListInterface')
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->formmaterBase = $this->getMockBuilder('Drupal\Core\Field\FormatterBase')
-            ->setMethods([])
-            ->disableOriginalConstructor()
-            ->getMock();
-
         $this->formatter = $this->getMockBuilder('Drupal\vimeo_field\Plugin\Field\FieldFormatter\VimeoDefaultFormatter')
             ->disableOriginalConstructor()
-            ->setMethods(['t', 'getSetting'])
             ->getMock();
 
         $this->formatter->expects($this->any())
