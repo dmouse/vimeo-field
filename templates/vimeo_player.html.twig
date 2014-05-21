@@ -1,5 +1,5 @@
 <div class="vimeo_player">
-    {% for vid in vids if vid %}
-        <iframe src='//player.vimeo.com/video/{{ vid.video }}' width='{{ vid.width }}' height='{{ vid.height }}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    {% endfor %}
+  {% for vid in vids if vid %}
+    <iframe src='//player.vimeo.com/video/{{ vid.video }}' width='{{ vid.width }}' height='{{ vid.height }}' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  {% endfor %}
 </div>
