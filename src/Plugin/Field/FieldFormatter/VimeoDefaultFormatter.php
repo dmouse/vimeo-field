@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Contains \Drupal\vimeo_field\Plugin\Field\FieldFormatter\VimeoDefaultFormatter.
@@ -22,21 +23,21 @@ use Drupal\Core\Field\FormatterBase;
  */
 class VimeoDefaultFormatter extends FormatterBase
 {
-	const URLTOID = '/vimeo\.com\/(\w+\s*\/?)*([0-9]+)*$/i';
+  const URLTOID = '/vimeo\.com\/(\w+\s*\/?)*([0-9]+)*$/i';
 
-	/**
-	 * Return id from a Vimeo URL
-	 * @param  string $url Vimeo url
-	 * @return string      Vimeo id
-	 */
-	public function vimeoUrlToId($url)
-	{
-		preg_match(VimeoDefaultFormatter::URLTOID, $url, $matches);
+  /**
+   * Return id from a Vimeo URL
+   * @param  string $url Vimeo url
+   * @return string      Vimeo id
+   */
+  public function vimeoUrlToId($url)
+  {
+    preg_match(VimeoDefaultFormatter::URLTOID, $url, $matches);
 
-		return $matches[1];
-	}
+    return $matches[1];
+  }
 
-	/**
+  /**
    * {@inheritdoc}
    */
   public function viewElements(FieldItemListInterface $items)
