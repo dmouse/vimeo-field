@@ -1,6 +1,6 @@
 Vimeo Field Formatter
 =====================
-[![Build Status](https://travis-ci.org/dmouse/vimeo_field.svg?branch=master)](https://travis-ci.org/dmouse/vimeo_field) 
+[![Build Status](https://travis-ci.org/dmouse/vimeo-field.svg?branch=master)](https://travis-ci.org/dmouse/vimeo-field)
 
 Vimeo Field Formatter for Drupal 8
 
