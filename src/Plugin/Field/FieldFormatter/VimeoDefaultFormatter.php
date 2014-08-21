@@ -8,6 +8,7 @@ namespace Drupal\vimeo_field\Plugin\Field\FieldFormatter;
 
 use \Drupal\Core\Field\FieldItemListInterface;
 use \Drupal\Core\Field\FormatterBase;
+use Drupal\Core\Form\FormStateInterface;
 use \InvalidArgumentException;
 
 /**
@@ -84,7 +85,7 @@ class VimeoDefaultFormatter extends FormatterBase
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $form, array &$form_state)
+  public function settingsForm(array $form, FormStateInterface $form_state)
   {
   	$element = [];
     $element['vimeo_width'] = [
