@@ -21,7 +21,7 @@ class VimeoDefaultFormatterTest extends PHPUnit_Framework_TestCase
     $pluginDefinition = $this->getMockBuilder('\Drupal\Core\Field\FieldDefinitionInterface')
                              ->getMock();
 
-    return new VimeoDefaultFormatter('vimeo', '', $pluginDefinition, $settings, 'vimeo', '');
+    return new VimeoDefaultFormatter('vimeo', '', $pluginDefinition, $settings, 'vimeo', 'vimeo', []);
   }
 
   public function testShouldReturnVimeoIdFromValidUrl()
@@ -86,7 +86,8 @@ class VimeoDefaultFormatterTest extends PHPUnit_Framework_TestCase
   public function testShouldReturnSettingsFormWithDefaultSettings()
   {
     $form = [];
-    $formState = [];
+    $formState = $this->getMockBuilder('\Drupal\Core\Form\FormStateInterface')
+                      ->getMock();
     $translation = $this->getFormTranslation();
 
     $formatter = $this->getVimeoFormatter();
@@ -103,7 +104,8 @@ class VimeoDefaultFormatterTest extends PHPUnit_Framework_TestCase
   public function testShouldReturnSettingsFormWithCustomSettings()
   {
     $form = [];
-    $formState = [];
+    $formState = $this->getMockBuilder('\Drupal\Core\Form\FormStateInterface')
+                      ->getMock();
     $translation = $this->getFormTranslation();
 
     $formatter = $this->getVimeoFormatter(['vimeo_width' => 100, 'vimeo_height' => 100]);
